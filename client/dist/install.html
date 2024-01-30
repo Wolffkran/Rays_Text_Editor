@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Install My App</title><link rel="icon" href="./dist/icons/icon_96x96.97a96e0fc4eb2a8bec3b8d49d90f1d14.png"><link rel="manifest" href="./dist/manifest.4c500760201e232e4fa2b862e03c0e0e.json"><script defer="defer" src="install.bundle.js"></script><meta name="theme-color" content="#000000" /><link rel="manifest" href="auto/manifest.662414c829fd97f7ab336015bb6a0441.json" crossorigin="use-credentials" /></head><body><h1>Welcome to My App!</h1><p>Click the button below to install the app on your device.</p><button id="installButton">Install App</button><script>// Add your install button logic here
+        document.getElementById('installButton').addEventListener('click', () => {
+            // Trigger the PWA installation prompt
+            if (window.deferredPrompt) {
+                window.deferredPrompt.prompt();
+                window.deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the A2HS prompt');
+                    } else {
+                        console.log('User dismissed the A2HS prompt');
+                    }
+                    window.deferredPrompt = null;
+                });
+            }
+        });</script></body></html>
