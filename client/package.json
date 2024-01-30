@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "style-loader": "^3.3.4",
     "workbox-webpack-plugin": "^7.0.0"
   },
   "devDependencies": {
