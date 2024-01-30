@@ -12,17 +12,17 @@ module.exports = () => {
     },
     output: {
       filename: '[name].bundle.js',
-      path: path.resolve(__dirname, 'dist'), // Update the output path
+      path: path.resolve(__dirname, 'dist'),
       publicPath: '/',
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './src/index.html', // Update the path to index.html
+        template: path.resolve(__dirname, 'src/index.html'), // Update the path to index.html
         filename: 'index.html',
         chunks: ['main'],
       }),
       new HtmlWebpackPlugin({
-        template: './src/install.html',
+        template: path.resolve(__dirname, 'src/install.html'),
         filename: 'install.html',
         chunks: ['install'],
       }),
@@ -36,7 +36,7 @@ module.exports = () => {
         display: 'standalone',
         icons: [
           {
-            src: path.resolve(__dirname, 'src/images/logo.png'), // Update the icon path
+            src: path.resolve(__dirname, 'src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('icons'),
           },
