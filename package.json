@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+ /*  Fill this in */
   "scripts": {
-    "start:dev": "",
+    "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\"",
     "start": "",
     "server": "",
     "build": "",

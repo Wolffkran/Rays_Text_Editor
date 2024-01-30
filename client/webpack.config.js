@@ -16,15 +16,15 @@ module.exports = () => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './src/index.html',
-        filename: 'index.html',
-        chunks: ['main'],
+        template: './index.html',
+/*         filename: 'index.html',
+        chunks: ['main'], */
       }),
-      new HtmlWebpackPlugin({
+     /*  new HtmlWebpackPlugin({
         template: './src/install.html',
         filename: 'install.html',
         chunks: ['install'],
-      }),
+      }), */
       new WebpackPwaManifest({
         name: 'Your Text Editor',
         short_name: 'TextEditor',
@@ -35,15 +35,15 @@ module.exports = () => {
         display: 'standalone',
         icons: [
           {
-            src: path.resolve('src/images/icon.png'),
+            src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('icons'),
           },
         ],
       }),
       new InjectManifest({
-        swSrc: './src/service-worker.js',
-        swDest: 'service-worker.js',
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js',
       }),
     ],
     module: {
