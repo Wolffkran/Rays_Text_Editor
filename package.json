@@ -6,14 +6,15 @@
     "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\"",
     "start": "npm run build && cd server && npm run server",
     "server": "nodemon server.js --ignore client",
-    "build": "cd client && yarn run build",
-    "install": "cd server && yarn install && cd ../client && yarn install",
+    "build": "cd client && npm run build",  
+    "install": "cd server && npm i && cd ../client && npm i",
     "client": "cd client && npm start"
-  },
-  "engines": {
-    "node": "14.x",
-    "npm": "6.x"
-  },
+},
+"engines": {
+  "node": "14.x",
+  "npm": "6.x",
+  "yarn": "1.x"
+},
   "dependencies": {
     "express": "^4.17.1"
   },
