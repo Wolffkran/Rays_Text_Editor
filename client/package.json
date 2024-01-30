@@ -15,6 +15,7 @@
     "workbox-webpack-plugin": "^7.0.0"
   },
   "devDependencies": {
+    "css-loader": "^6.10.0",
     "nodemon": "^2.0.4"
   }
 }

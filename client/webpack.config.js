@@ -31,7 +31,7 @@ module.exports = () => {
         description: 'Your PWA Description',
         background_color: '#ffffff',
         theme_color: '#000000',
-        crossorigin: 'use-credentials', // can be null, use-credentials or anonymous
+        crossorigin: 'use-credentials', // can be null, use-credentials, or anonymous
         icons: [
           {
             src: path.resolve('src/assets/icon.png'),
@@ -44,7 +44,6 @@ module.exports = () => {
         swDest: 'service-worker.js',
       }),
     ],
-
     module: {
       rules: [
         {
