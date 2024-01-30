@@ -7,22 +7,22 @@ module.exports = () => {
   return {
     mode: 'production',
     entry: {
-      main: './client/src/js/index.js', // Update the path to your entry file
-      install: './client/src/js/install.js', // Update the path to your install file
+      main: './src/js/index.js',
+      install: './src/js/install.js',
     },
     output: {
       filename: '[name].bundle.js',
-      path: path.resolve(__dirname, 'client', 'dist'), // Update the output path
+      path: path.resolve(__dirname, 'dist'), // Output to a 'dist' folder in the root
       publicPath: '/',
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, 'client', 'src', 'index.html'), // Update the path to your index.html
+        template: './index.html',
         filename: 'index.html',
         chunks: ['main'],
       }),
       new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, 'client', 'src', 'install.html'), // Update the path to your install.html
+        template: './src/install.html',
         filename: 'install.html',
         chunks: ['install'],
       }),
@@ -36,7 +36,7 @@ module.exports = () => {
         display: 'standalone',
         icons: [
           {
-            src: path.resolve(__dirname, 'client', 'src', 'images', 'logo.png'), // Update the path to your icon
+            src: path.resolve(__dirname, 'src', 'images', 'logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('icons'),
           },
