@@ -17,33 +17,31 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './src/index.html',
-        filename: 'index.html',
         chunks: ['main'],
+        filename: 'index.html',
       }),
       new HtmlWebpackPlugin({
         template: './src/install.html',
-        filename: 'install.html',
         chunks: ['install'],
+        filename: 'install.html',
       }),
       new WebpackPwaManifest({
-        name: 'Rays Text Editor',
-        short_name: 'TextEditor',
-        description: 'A Progressive Web App for text editing',
+        name: 'Your PWA Name',
+        short_name: 'PWA',
+        description: 'Your PWA Description',
         background_color: '#ffffff',
         theme_color: '#000000',
-        start_url: '/',
-        display: 'standalone',
+        crossorigin: 'use-credentials', // can be null, use-credentials or anonymous
         icons: [
           {
-            src: path.resolve(__dirname, 'src', 'images', 'logo.png'),
+            src: path.resolve('src/assets/icon.png'),
             sizes: [96, 128, 192, 256, 384, 512],
-            destination: path.join('icons'),
           },
         ],
       }),
       new InjectManifest({
         swSrc: './src-sw.js',
-        swDest: 'src-sw.js',
+        swDest: 'service-worker.js',
       }),
     ],
 
@@ -52,16 +50,6 @@ module.exports = () => {
         {
           test: /\.css$/,
           use: ['style-loader', 'css-loader'],
-        },
-        {
-          test: /\.js$/,
-          exclude: /node_modules/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env'],
-            },
-          },
         },
       ],
     },
