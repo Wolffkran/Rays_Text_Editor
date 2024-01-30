@@ -4,8 +4,12 @@
   "description": "A simple text editor",
   "main": "server.js",
   "scripts": {
-    "install": "cd client && npm install && cd ../server && npm install --ignore-scripts"
-  },  
+    "install": "cd client && npm install && cd ../server && npm install --ignore-scripts",
+    "start:dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "node server.js", 
+    "server": "nodemon server.js", 
+    "client": "cd client && npm start"
+  },
   "keywords": [],
   "author": "Raymond",
   "license": "ISC",
