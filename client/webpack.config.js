@@ -17,14 +17,14 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
-/*         filename: 'index.html',
-        chunks: ['main'], */
+        filename: 'index.html',
+        chunks: ['main'],
       }),
-     /*  new HtmlWebpackPlugin({
+      new HtmlWebpackPlugin({
         template: './src/install.html',
         filename: 'install.html',
         chunks: ['install'],
-      }), */
+      }),
       new WebpackPwaManifest({
         name: 'Your Text Editor',
         short_name: 'TextEditor',
