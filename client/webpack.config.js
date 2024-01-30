@@ -36,7 +36,7 @@ module.exports = () => {
         display: 'standalone',
         icons: [
           {
-            src: path.resolve('../src/images/logo.png'), // Adjust the icon path
+            src: path.resolve(__dirname, '../client/dist/icons/logo.png'), // Adjust the icon path
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('icons'),
           },
