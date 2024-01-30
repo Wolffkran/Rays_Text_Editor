@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const CopyWebpackPlugin = require('copy-webpack-plugin'); // Add this line
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
@@ -12,7 +13,7 @@ module.exports = () => {
     },
     output: {
       filename: '[name].bundle.js',
-      path: path.resolve(__dirname, '../dist'), // Adjust the output path
+      path: path.resolve(__dirname, '../dist'),
       publicPath: '/',
     },
     plugins: [
@@ -36,12 +37,13 @@ module.exports = () => {
         display: 'standalone',
         icons: [
           {
-            src: path.resolve(__dirname, '../client/dist/icons/logo.png'), // Update the icon path
+            src: path.resolve('./src/images/logo.png'), // Update the icon path
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('icons'),
           },
         ],
       }),
+      new CopyWebpackPlugin([{ from: './src/images/logo.png', to: './icons/logo.png' }]), // Add this line
       new InjectManifest({
         swSrc: './src-sw.js',
         swDest: 'src-sw.js',
