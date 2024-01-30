@@ -17,12 +17,12 @@ module.exports = () => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './src/index.html', // Update the template path
+        template: './src/index.html',  // Update this path
         filename: 'index.html',
         chunks: ['main'],
       }),
       new HtmlWebpackPlugin({
-        template: './src/install.html',
+        template: './src/install.html',  // Update this path
         filename: 'install.html',
         chunks: ['install'],
       }),
