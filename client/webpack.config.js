@@ -21,7 +21,7 @@ module.exports = () => {
         chunks: ['main'],
       }),
       new HtmlWebpackPlugin({
-        template: './install.html',
+        template: './src/install.html',
         filename: 'install.html',
         chunks: ['install'],
       }),
@@ -35,7 +35,7 @@ module.exports = () => {
         display: 'standalone',
         icons: [
           {
-            src: path.resolve(__dirname, 'src/images/logo.png'), // Adjust the path
+            src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('icons'),
           },
