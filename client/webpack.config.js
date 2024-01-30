@@ -16,12 +16,12 @@ module.exports = () => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, 'src', 'install.html'),
+        template: './src/install.html',
         filename: 'install.html',
         chunks: ['install'],
       }),
       new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, 'src', 'index.html'),
+        template: './src/index.html',
         filename: 'index.html',
         chunks: ['main'],
       }),
@@ -31,7 +31,7 @@ module.exports = () => {
         description: 'Your PWA Description',
         background_color: '#ffffff',
         theme_color: '#000000',
-        crossorigin: 'use-credentials', // can be null, use-credentials or anonymous
+        crossorigin: 'use-credentials', // can be null, use-credentials, or anonymous
         icons: [
           {
             src: path.resolve(__dirname, 'src', 'assets', 'icon.png'),
