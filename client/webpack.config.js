@@ -5,29 +5,28 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = () => {
   return {
-    mode: 'production',
+    mode: 'development',
     entry: {
       main: './src/js/index.js',
-      install: './src/js/install.js',
+      install: './src/js/install.js'
     },
     output: {
       filename: '[name].bundle.js',
-      path: path.resolve(__dirname, 'dist'), // Output to a 'dist' folder in the root
-      publicPath: '/',
+      path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './src/index.html',  // Update this path
+        template: './src/index.html',
         filename: 'index.html',
         chunks: ['main'],
       }),
       new HtmlWebpackPlugin({
-        template: './src/install.html',  // Update this path
+        template: './src/install.html',
         filename: 'install.html',
         chunks: ['install'],
       }),
       new WebpackPwaManifest({
-        name: 'Your Text Editor',
+        name: 'Rays Text Editor',
         short_name: 'TextEditor',
         description: 'A Progressive Web App for text editing',
         background_color: '#ffffff',
@@ -47,6 +46,7 @@ module.exports = () => {
         swDest: 'src-sw.js',
       }),
     ],
+
     module: {
       rules: [
         {
