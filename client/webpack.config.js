@@ -5,25 +5,24 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = () => {
   return {
-    mode: 'development',
+    mode: 'production',
     entry: {
-      main: './client/src/js/index.js', // Adjust the entry paths
-      install: './client/src/js/install.js',
+      main: './src/js/index.js',
+      install: './src/js/install.js',
     },
     output: {
       filename: '[name].bundle.js',
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, '../dist'), // Adjust the output path
       publicPath: '/',
     },
-    context: path.resolve(__dirname, 'client'),  // Adjust the context to the client folder
     plugins: [
       new HtmlWebpackPlugin({
-        template: './client/index.html', // Adjust the template paths
+        template: './index.html',
         filename: 'index.html',
         chunks: ['main'],
       }),
       new HtmlWebpackPlugin({
-        template: './client/src/install.html', // Adjust the template paths
+        template: './src/install.html',
         filename: 'install.html',
         chunks: ['install'],
       }),
@@ -37,14 +36,14 @@ module.exports = () => {
         display: 'standalone',
         icons: [
           {
-            src: path.resolve('client/src/images/logo.png'), // Adjust the icon path
+            src: path.resolve('../src/images/logo.png'), // Adjust the icon path
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('icons'),
           },
         ],
       }),
       new InjectManifest({
-        swSrc: './client/src-sw.js', // Adjust the service worker path
+        swSrc: './src-sw.js',
         swDest: 'src-sw.js',
       }),
     ],
