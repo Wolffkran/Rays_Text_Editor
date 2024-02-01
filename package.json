@@ -4,8 +4,7 @@
   "description": "A simple text editor",
   "scripts": {
     "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\"",
-    "start": "node server/server.js",
-    "heroku-postbuild": "npm run build",
+    "start": "npm run build && cd server && npm run server",
     "server": "nodemon server.js --ignore client",
     "build": "webpack --mode production",
     "client": "cd client && npm start"
@@ -23,5 +22,9 @@
     "webpack": "^5.90.1",
     "webpack-cli": "^5.1.4"
   },
-  "main": "server/server.js"
+  "main": "server/server.js", 
+  "scripts": {
+    "start": "node server/server.js",
+    "heroku-postbuild": "npm run build"
+  }
 }
