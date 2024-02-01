@@ -22,7 +22,7 @@
     "webpack": "^5.90.1",
     "webpack-cli": "^5.1.4"
   },
-  "main": "server.js", 
+  "main": "server/server.js", 
   "scripts": {
     "start": "node server/server.js",
     "heroku-postbuild": "npm run build"
