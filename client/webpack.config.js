@@ -6,8 +6,8 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 module.exports = {
   mode: 'production',
   entry: {
-    main: './src/js/index.js',
-    install: './src/js/install.js'
+    main: path.resolve(__dirname, 'src/js/index.js'),
+    install: path.resolve(__dirname, 'src/js/install.js')
   },
   output: {
     filename: 'bundle.js',
@@ -15,13 +15,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/install.html',
+      template: path.resolve(__dirname, 'src/install.html'),
       filename: 'install.html',
       chunks: ['install'],
       inject: true,
     }),
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: path.resolve(__dirname, 'src/index.html'),
       filename: 'index.html',
       chunks: ['main'],
       inject: true,
@@ -35,14 +35,14 @@ module.exports = {
       crossorigin: 'use-credentials',
       icons: [
         {
-          src: path.resolve('./src/images/logo.png'),
+          src: path.resolve(__dirname, 'src/images/logo.png'),
           sizes: [96, 128, 192, 256, 384, 512],
           destination: path.join('assets', 'icons'),
         },
       ],
     }),
     new InjectManifest({
-      swSrc: './src-sw.js',
+      swSrc: path.resolve(__dirname, 'src-sw.js'),
       swDest: 'service-worker.js',
     }),    
   ],
