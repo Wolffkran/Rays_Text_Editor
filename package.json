@@ -4,7 +4,7 @@
   "description": "A simple text editor",
   "scripts": {
     "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\"",
-    "start": "node server/server.js",
+    "start": "node ./server/server.js",
     "server": "nodemon server.js --ignore client",
     "build": "webpack --mode production --config client/webpack.config.js", 
     "client": "cd client && npm start"
