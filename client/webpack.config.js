@@ -32,17 +32,17 @@ module.exports = {
       description: 'Your PWA Description',
       background_color: '#ffffff',
       theme_color: '#000000',
-      crossorigin: 'use-credentials', 
+      crossorigin: 'use-credentials',
       icons: [
         {
-          src: path.resolve('src/images/logo.png'),
+          src: path.resolve('./src/images/logo.png'),
           sizes: [96, 128, 192, 256, 384, 512],
           destination: path.join('assets', 'icons'),
         },
       ],
     }),
     new InjectManifest({
-      swSrc: './client/src-sw.js', 
+      swSrc: './src-sw.js',
       swDest: 'service-worker.js',
     }),
   ],
