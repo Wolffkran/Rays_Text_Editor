@@ -6,9 +6,11 @@
     "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\"",
     "start": "npm run build && cd server && node server.js",
     "server": "cd server nodemon server.js --ignore client",
+    "install": "cd server && npm i && cd ../client && npm i --production=false",
     "build": "cd client && npm run build",
-    "install": "cd server && npm i && cd ../client && npm i",
+    "render-build":"npm install && npm run build",
     "client": "cd client && npm start"
+    
   },
   "dependencies": {
     "express": "^4.17.1"
